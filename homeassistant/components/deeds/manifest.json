@@ -1,0 +1,15 @@
+{
+  "domain": "deeds",
+  "name": "deeds",
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/deeds",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": [
+    "@wrieden"
+  ],
+  "iot_class": "calculated"
+}
