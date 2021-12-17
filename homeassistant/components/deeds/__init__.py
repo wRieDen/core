@@ -1,30 +1,17 @@
 """The deeds integration."""
 from __future__ import annotations
 
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.typing import ConfigType
 
-from .const import DOMAIN
-
-# TODO List the platforms that you want to support.
-# For your initial PR, limit it to 1 platform.
-PLATFORMS: list[str] = ["light"]
+# The domain of your component. Should be equal to the name of your component.
+DOMAIN = "deeds"
 
 
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up deeds from a config entry."""
-    # TODO Store an API object for your platforms to access
-    # hass.data[DOMAIN][entry.entry_id] = MyApi(...)
+def setup(hass: HomeAssistant, config: ConfigType) -> bool:
+    """Set up a skeleton component."""
+    # States are in the format DOMAIN.OBJECT_ID.
+    hass.states.set("deeds.Hello_World", "Works!")
 
-    hass.config_entries.async_setup_platforms(entry, PLATFORMS)
-
+    # Return boolean to indicate that initialization was successfully.
     return True
-
-
-async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Unload a config entry."""
-    unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
-    if unload_ok:
-        hass.data[DOMAIN].pop(entry.entry_id)
-
-    return unload_ok
